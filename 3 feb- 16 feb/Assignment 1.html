@@ -1,0 +1,125 @@
+<html>
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="style1.css">
+<script>
+function age(){
+
+
+          var birth = new Date(document.getElementById("dob").value);
+          var curdat = new Date();
+       
+		  var cyr=parseInt(curdat.getFullYear());
+		  var byr=parseInt(birth.getFullYear());
+		  var x= cyr - byr;
+         document.getElementById("age").innerHTML = x;
+         
+    }
+	
+
+function multiplyBy()
+{
+     
+		 var x = document.forms["my"]["qt"].value;
+	var mob = document.forms["my"]["pr"].value;
+        document.getElementById("p4").innerHTML = x * mob;
+}
+</script>
+</head>
+<body><br><br>
+<form name="my" action="data.html" method="get" >
+<div class="container">
+<div class="row">
+<div class="input-group ">
+<input type="text" class="form-control" placeholder="Product Name"  id="p3" name="product" required>
+</div>
+</div><br>
+<div class="row">
+<div class="input-group ">
+<input type="number" class="form-control" placeholder="Quantity" name="qt" id="p2" required><br>
+
+</div>
+</div><br>
+
+<div class="row">
+   <div class="input-group ">
+   <span class="input-group-addon"><i class="fa fa-dollar errspan"></i></span>
+   <input type="number" name="pr" class="form-control" placeholder="Price" id="p1" onblur="multiplyBy()" required>
+   </div>
+   </div>
+ <br>
+   <div class="row">
+   <div class="input-group ">
+      <b>Total Price: </b><span class="input-group-addon"><i class="fa fa-dollar errspan"></i></span>
+   <type="number" class="form-control" id="p4" name= "sum">
+   </div>
+   </div><br>
+   
+<div class="row">
+<div class="input-group ">
+<input type="date" class="form-control" placeholder="Date of birth" name="dob"  id="dob"  onblur="age()" required>
+</div>
+</div><br>
+ <div class="row">
+   <div class="input-group ">
+    <span class="input-group-addon">Age</span>
+   <type="number" class="form-control" name="age" id="age">
+   </div>
+   </div>
+</div><br>
+
+<div class="container ">
+<div class="row">  
+<button type="submit" class="btn btn-primary" onclick="processUser()"> Insert</button>&nbsp; &nbsp;
+<button type="button" onclick="" class="btn btn-warning">Delete All</button><br><br>
+</div><br>
+</div>
+
+<div class="container">
+    <div class="row">
+      <input  style="width:96%;" type="text" placeholder="Search.." class="form-control" name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    
+  </div>
+   </div><br>
+</form>   
+<div class="container">
+ 
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Quantity</th>
+        <th></th>
+		<th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>12</td>
+        <td colspan="2"><button class="btn"><i class="fa fa-trash"></i></button>&nbsp; &nbsp;<button class="btn"><i class="fa fa-edit"></i></button></td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>10</td>
+      <td colspan="2"><button class="btn"><i class="fa fa-trash "></i></button>&nbsp; &nbsp;<button class="btn"><i class="fa fa-edit"></i></button></td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>20</td>
+       <td colspan="2"><button class="btn"><i class="fa fa-trash"></i></button>&nbsp; &nbsp;<button class="btn"><i class="fa fa-edit"></i></button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+
+</html>

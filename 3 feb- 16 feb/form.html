@@ -1,0 +1,48 @@
+<html>
+<head>
+<script>
+function validateForm() 
+{
+
+  var x = document.forms["myForm"]["fname"].value;
+	var mob= document.forms["myForm"]["mob"].value;
+	var pin= document.forms["myForm"]["pin"].value;
+	var nmmsg= "Namee is required";
+	var mobmsg1= "Enter proper mobile no.";
+	var mobmsg2= "Enter only numerics for mobile";	
+
+
+  if (x == "" || x=null) {
+    document.getElementById('ernm').innerHTML=nmmsg;
+    return false;
+  }
+  else if (mob.length!=10)
+{
+document.getElementById('ermob').innerHTML=mobmsg1;
+return false;
+}
+else if(isNaN(mob)){
+document.getElementById('ermob').innerHTML=mobmsg2;
+return false;
+}
+else{
+document.my.submit();
+}
+}
+</script>
+</head>
+<body>
+
+<form name="myForm"  onsubmit="return validateForm()" method="post">
+  Name: <input type="text" name="fname"  onfocus="removemsg('ernm')">
+  <span id="ernm" style="color:red"></span><br>
+  Mobile:<input type="text" name="mob"  onfocus="removemsg('ermob')">
+  <span id="ermob" style="color:red"></span><br>
+Pincode  <input type="text" name="pin"  onfocus="removemsg('erpin')">
+  <span id="erpin" style="color:red"></span><br>
+  
+  <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

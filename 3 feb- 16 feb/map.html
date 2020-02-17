@@ -1,0 +1,26 @@
+<html>
+<body>
+<script>
+
+var num = [45,4,9,16,25];
+var numbers = num.map(myfun1);
+document.write("Result "+numbers+ "<br>" );
+var numbers = num.filter(myfun2);
+document.write("Result "+numbers+ "<br>");
+var numbers = num.reduce(myfun3);
+document.write("Result "+numbers+ "<br>" );
+document.write(Math.floor(Math.random()*10));
+
+function myfun1(value){
+return value * 2;
+}
+function myfun2(value){
+return value>10;
+}
+function myfun3(total,value){
+return total+value;
+}
+</script>
+
+</body>
+</html>

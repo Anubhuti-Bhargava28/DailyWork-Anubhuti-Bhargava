@@ -1,0 +1,29 @@
+<html>
+<head>
+</head>
+<body>
+
+<table id="myTable" border="1">
+  </table>
+  <br>
+  
+<input type="button" onclick="insrow()" value = "insert now...">
+<button onclick="myDeleteFunction()">Delete row</button>
+
+<script>
+var x=1;
+function insrow() {
+  var t = document.getElementById('myTable').insertRow(-1);
+  var y = t.insertCell(0);
+  var z = t.insertCell(1);
+ 
+  y.innerHTML =x++;
+  z.innerHTML =x++;
+}
+function myDeleteFunction() {
+  document.getElementById("myTable").deleteRow(0);
+}
+</script>
+
+</body>
+</html>

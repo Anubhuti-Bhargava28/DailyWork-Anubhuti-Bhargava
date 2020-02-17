@@ -1,0 +1,17 @@
+<html>
+<body>
+<input type="text" id="let">
+<script>
+var person={
+firstName:"John",
+lastName:"Doe",
+id:5566,
+fullName : function(){
+return this.firstName+""+this.lastName;
+}
+};
+document.write(person.fullName());
+document.getElementById('let').value= person.fullName();
+</script>
+</body>
+</html>

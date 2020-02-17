@@ -1,0 +1,46 @@
+<html>
+<body>
+
+<p>Click the button to add new elements to the array.</p>
+
+<button onclick="myFunction()">Try itpush</button>
+<button onclick="myFunction1()">Again try itsplice</button>
+<button onclick="myFunction2()">Again try it pop</button>
+<button onclick="myFunction3()">Again try it shift</button>
+<button onclick="myFunction4()">Again try it unshift</button>
+
+
+<p id="demo"></p>
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+<p id="demo4"></p>
+
+<script>
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits;
+
+function myFunction() {
+  fruits.push("Kiwi", "Lemon", "Pineapple");
+  document.getElementById("demo").innerHTML = fruits;
+}
+function myFunction1() {
+  fruits.splice(1, 0, "Pineapple","Kiwi");
+  document.getElementById("demo1").innerHTML = fruits;
+}
+function myFunction2() {
+  fruits.pop();
+  document.getElementById("demo2").innerHTML = fruits;
+}
+function myFunction3() {
+  fruits.shift();
+  document.getElementById("demo3").innerHTML = fruits;
+}
+function myFunction4() {
+  fruits.arr.unshift("Kiwi");
+  document.getElementById("demo4").innerHTML = fruits;
+}
+</script>
+
+</body>
+</html>

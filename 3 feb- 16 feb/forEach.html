@@ -1,0 +1,20 @@
+<html>
+<body>
+
+<p>Get the sum of the numbers in the array.</p>
+
+<p id="demo"></p>
+
+<script>
+var sum = 0;
+var numbers = [65, 44, 12, 4];
+numbers.forEach(myFunction);
+
+function myFunction(item) {
+  sum += item;
+  document.getElementById("demo").innerHTML = sum;
+}
+</script>
+
+</body>
+</html>

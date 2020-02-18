@@ -69,8 +69,12 @@ class Salary extends Employee1 {
 	}
 
 	double calculate() {
+		double pf = (12 * pay)/100;
+		double tax= (10*pay)/100;
+		double hr= (2*pay);
 		
-		NetPay = pay / 30;
+		
+		NetPay = pf + tax+ hr;
 
 		return NetPay;
 	}
@@ -84,6 +88,10 @@ public class PayRollSystem {
 		Scanner input = new Scanner(System.in);
 		
 		Salary e = new Salary();
+		System.out.println("Enter ID:");
+		e.setEmployeeId(input.nextInt());
+		System.out.println("Enter Name:");
+		e.setName(input.next());
 		
 		System.out.println("Enter Add:");
 		e.setAddress(input.next());
@@ -92,23 +100,28 @@ public class PayRollSystem {
 		e.setDesignation(input.next());
 		System.out.println("Enter mob no,.:");
 		e.setMobileNumber(input.nextInt());
-		System.out.println("Enter Name:");
-		e.setName(input.next());
-		System.out.println("Enter ID:");
-		e.setEmployeeId(input.nextInt());
+		
 		System.out.println("Enter Pay:");
 		e.setPay(input.nextInt());
 		
 		int a = e.getEmployeeId();
-		int b = e.getMobileNumber();
+	int b = e.getMobileNumber();
 		String c = e.getAddress();
 		String d = e.getDesignation();
 		String f = e.getName();
 		int p= e.getPay();
 		
 		double ctc= e.calculate();  
-		System.out.println(ctc);
-		System.out.println("employeeId: " + a + "Mob: " + b + "Add: " + c + "Desg: " + d + "Name " +f+"Pay: "+p);
+
+		System.out.println("employeeId: " + a );
+		System.out.println( "Name " +f);
+		System.out.println("Mob: " + b );
+		System.out.println("Add: " + c);
+		System.out.println("Desg: " + d);
+
+		System.out.println("Pay: "+p);
+
+		System.out.println("Net Pay: "+ctc);
 
 	}
 

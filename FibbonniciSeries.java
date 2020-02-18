@@ -9,17 +9,18 @@ public class FibbonniciSeries {
 	    	Scanner  input= new Scanner(System.in);
 	    	
 	    	int n  = input.nextInt();
-	    	
+	    	 int sum=0;
 	        int i = 1, t1 = 0, t2 = 1;
 	        System.out.print("First " + n + " terms: ");
 	        while (i <= n)
 	        {
 	            System.out.print(t1 + " + ");
-	            int sum = t1 + t2;
+	            sum = t1 + t2;
 	            t1 = t2;
 	            t2 = sum;
 	            i++;
 	        }
+	        System.out.println("Sum of fibboniiccci series is: "  + sum);
 	    }
 	}
 

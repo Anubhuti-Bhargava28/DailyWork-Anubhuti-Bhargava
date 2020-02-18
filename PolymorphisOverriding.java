@@ -11,7 +11,7 @@ class F {
 
 	class Y extends F {
 
-		public void displays() {
+		public void display() {
 			System.out.println("class B");
 		}
 	}

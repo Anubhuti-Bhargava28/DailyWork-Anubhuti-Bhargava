@@ -1,6 +1,7 @@
 package com.cts.regularWork;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.ListIterator;
 
@@ -15,7 +16,9 @@ public class ArrayListDemo {
 		list.add("7");
 		list.add("true");
 
-		System.out.println(list);
+		System.out.println("Unsorted"+list);
+		Collections.sort(list);
+		System.out.println("Sorted"+list);
 		/*
 		 * list.add("3, aplle"); list.remove(4); System.out.println(list.contains("7"));
 		 */

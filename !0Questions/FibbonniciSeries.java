@@ -1,4 +1,4 @@
-package com.cts;
+package com.cts.Questions;
 import java.util.*;
 
 public class FibbonniciSeries {

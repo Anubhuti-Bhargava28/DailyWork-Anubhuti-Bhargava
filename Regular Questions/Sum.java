@@ -1,4 +1,4 @@
-package com.cts;
+package com.cts.task;
 
 import java.util.Scanner;
 

@@ -20,7 +20,7 @@ public class EmployeeController {
 		
 		
 		EmployeeDAO empObj = new EmployeeDAOImpl();
-		List<Employee> list = empObj.getAllEmployees();
+	
 		System.out.println("Employment Management System");
 		System.out.println("Operations to get Performed");
 
@@ -101,6 +101,7 @@ public class EmployeeController {
 		case 5:
 			System.out.println("To show the details of employees ");
 			System.out.println("Details:");
+			List<Employee> list = empObj.getAllEmployees();
 			list.forEach(System.out::println);
 			System.out.println("Do yo want to continue if yes press 1 else press 0");
 			int k= Integer.parseInt(br.readLine());

@@ -59,7 +59,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 			ps.executeUpdate();
 			return true;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 			return false;
 		}
@@ -75,7 +75,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 			ps.executeUpdate();
 			return true;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		
 			e.printStackTrace();
 			return false;
 		}

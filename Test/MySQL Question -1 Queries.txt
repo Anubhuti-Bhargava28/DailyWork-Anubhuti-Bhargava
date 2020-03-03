@@ -1,0 +1,179 @@
+1.create database BankManagementt;
+2.use BankManagementt
+3.create table branch_master(branch_id varchar(6) primary key,branch_name varchar(30),branch_city varchar(30));
+
+4.create table loan_details(customer_number varchar(6),branch_id varchar(6) ,loan_amount int(7) ,foreign key(branch_id) references branch_master(branch_id), foreign key(customer_number) references customer_master(customer_number));
+
+5.create table customer_master(customer_number varchar(6) primary key,firstname varchar(30),middlename varchar(30),lastname varchar(30),customer_city varchar(15),customer_contact_no varchar(10), occupation varchar(20), customer_date_of_birth DATE);
+
+6.
+create table account_master(account_number varchar(6) primary key,customer_number varchar(6),branch_id varchar(6),opening_balance int(7),account_opening_date DATE,account_type varchar(10),account_status varchar(10), foreign key(customer_number) references customer_master(customer_number),foreign key(branch_id) references branch_master(branch_id));
+
+7.create table transaction_details(transaction_number varchar(6) primary key,account_number varchar(6),date_of_transaction DATE,medium_of_transaction varchar(20),transaction_type varchar(20),transaction_amount int(7), foreign key(account_number) references account_master(account_number));
+
+8.ALTER TABLE loan_details
+RENAME COLUMN cutomer_number TO customer_number;
+
+9. insert into branch_master values ('1','Goyal nagar','Indore');
+Query OK, 1 row affected (0.02 sec)
+
+10.insert into branch_master values ('2','Vijay nagar','Indore');
+
+
+11. insert into branch_master values ('3','Ramnagar','Pune');
+
+
+12. insert into branch_master values ('4','Khajrana','Indore');
+
+
+13.  insert into customer_master values ('1','Anubhuti','Kumari','Bhargava','Indore','9425765830','Engineer','1998-01-28');
+14.  insert into customer_master values ('2','Pallavi','Kumari','Singh','Rewa','9424334830','Engineer','1997-08-11');
+15.  insert into customer_master values ('3','Purva','Kumari','Patel','Pune','942344330','Engineer','1998-02-10');
+
+
+16.insert into account_master values ('23231','1','1',2323,'2015-02-23','Savings','Active');
+
+
+17.insert into account_master values ('23232','2','2',2000,'2013-04-25','Savings','Active');
+
+18. insert into account_master values ('23233','3','3',1000,'2012-12-25','Savings','Active');
+
+
+19. insert into loan_details values ('1','1',1000000);
+
+
+20.insert into loan_details values ('2','2',21000000);
+
+21. select * from branch_master;
+
++-----------+-------------+-------------+
+| branch_id | branch_name | branch_city |
++-----------+-------------+-------------+
+| 1         | Goyal nagar | Indore      |
+| 2         | Vijay nagar | Indore      |
+| 3         | Ramnagar    | Pune        |
+| 4         | Khajrana    | Indore      |
++-----------+-------------+-------------+
+
+22. select * from customer_master;
+-----+
+| customer_number | firstname | middlename | lastname | customer_city | customer_contact_no | occupation | customer_date_of_birth |
++-----------------+-----------+------------+----------+---------------+---------------------+------------+------------------------+
+| 1               | Anubhuti  | Kumari     | Bhargava | Indore        | 9425765830          | Engineer   | 1998-01-28             |
+| 2               | Pallavi   | Kumari     | Singh    | Rewa          | 9424334830          | Engineer   | 1997-08-11             |
+| 3               | Purva     | Kumari     | Patel    | Pune          | 942344330           | Engineer   | 1998-02-10             |
++-----------------+-----------+------------+----------+---------------+---------------------+------------+-------------------
+
+23. select * from account_master;
+
++----------------+-----------------+-----------+-----------------+----------------------+--------------+----------------+
+| account_number | customer_number | branch_id | opening_balance | account_opening_date | account_type | account_status |
++----------------+-----------------+-----------+-----------------+----------------------+--------------+----------------+
+| 23231          | 1               | 1         |            2323 | 2015-02-23           | Savings      | Active         |
+| 23232          | 2               | 2         |            2000 | 2013-04-25           | Savings      | Active         |
+| 23233          | 3               | 3         |            1000 | 2012-12-25           | Savings      | Active         |
++----------------+-----------------+-----------+-----------------+----------------------+--------------+----------------+
+
+24. select * from loan_details;
+
++-----------------+-----------+-------------+
+| customer_number | branch_id | loan_amount |
++-----------------+-----------+-------------+
+| 1               | 1         |     1000000 |
+| 2               | 2         |    21000000 |
++-----------------+-----------+-------------+
+
+25. select account_master.account_number,account_master.customer_number,customer_master.firstname,customer_master.lastname,account_master.account_opening_date from account_master join customer_master on account_master.customer_number=customer_master.customer_number;
+
++----------------+-----------------+-----------+----------+----------------------+
+| account_number | customer_number | firstname | lastname | account_opening_date |
++----------------+-----------------+-----------+----------+----------------------+
+| 23231          | 1               | Anubhuti  | Bhargava | 2015-02-23           |
+| 23232          | 2               | Pallavi   | Singh    | 2013-04-25           |
+| 23233          | 3               | Purva     | Patel    | 2012-12-25           |
++----------------+-----------------+-----------+----------+----------------------+
+
+26.  select count(customer_city) as "Cust_Count" from customer_master where customer_city="delhi";
++------------+
+| Cust_Count |
++------------+
+|          3 |
++------------+
+
+27.  select customer_master.customer_number,customer_master.firstname,account_master.account_number from account_master ,customer_master where account_master.customer_number=customer_master.customer_number and day(account_opening_date)>15;
++-----------------+-----------+----------------+
+| customer_number | firstname | account_number |
++-----------------+-----------+----------------+
+| 1               | Anubhuti  | 23231          |
+| 2               | Pallavi   | 23232          |
+| 3               | Purva     | 23233          |
++-----------------+-----------+----------------+
+
+28. select a.customer_number,a.account_number,c.firstname from account_master a,customer_master c where a.customer_number=c.customer_number and account_status="active";
++-----------------+----------------+-----------+
+| customer_number | account_number | firstname |
++-----------------+----------------+-----------+
+| 1               | 23231          | Anubhuti  |
+| 2               | 23232          | Pallavi   |
+| 3               | 23233          | Purva     |
++-----------------+----------------+-----------+
+
+
+29. select transaction_type,count(*) as Trans_count from transaction_details t,account_master a where t.account_number=a.account_number and a.customer_number="2";
++------------------+-------------+
+| transaction_type | Trans_count |
++------------------+-------------+
+| NULL             |           0 |
++------------------+-------------+
+
+30. select count(*) as Count_Customer from customer_master where customer_number not in(select distinct customer_number from account_master);
++----------------+
+| Count_Customer |
++----------------+
+|              3 |
++----------------+
+
+
+31. select distinct a.account_number,sum(t.transaction_amount)+a.opening_balance as Deposit_Amount from account_master a,transaction_details t where  t.account_number=a.account_number and transaction_type="deposit" group by account_number
+union
+select account_number,opening_balance from account_master where account_number not in
+(select account_number from transaction_details);
+
+
++----------------+----------------+
+| account_number | Deposit_Amount |
++----------------+----------------+
+| 23233          |           3500 |
+| 23231          |           2323 |
+| 23232          |           2000 |
++----------------+----------------+
+
+32. select b.branch_city,count(*) from branch_master b,account_master a where b.branch_id=a.branch_id group by branch_city
+union
+select branch_city,0 from branch_master where branch_city not in
+(select branch_city from branch_master b,account_master a where a.branch_id=b.branch_id group by branch_city)
+union
+select b.branch_id,count(*) from branch_master b,account_master a where a.branch_id=b.branch_id group by branch_id
+union
+select branch_id,0 from branch_master where branch_id not in
+(select a.branch_id from branch_master b,account_master a where a.branch_id=b.branch_id group by branch_id);
+
+
++-------------+----------+
+| branch_city | count(*) |
++-------------+----------+
+| Indore      |        2 |
+| Pune        |        1 |
+| 1           |        1 |
+| 2           |        1 |
+| 3           |        1 |
+| 4           |        0 |
++-------------+----------+
+
+
+
+
+
+
+
+

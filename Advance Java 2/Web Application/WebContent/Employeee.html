@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>prototype</h1>
+</body>
+<script type="text/javascript">
+
+function Employee(firstName) {
+	this.firstName= firstName;
+}
+
+var e1 = new Employee("Kartik");
+
+var e2 = new Employee("Nayra");
+
+Employee.prototype.getEmployeeName= function(){
+	return this.firstName;
+}
+
+var message = "Hekkp sdad? sdf fdsad dasd? d ad? ad ad ";
+var data= message.split("?");
+console.log(data);
+
+var cities=["Latur","Pune","Mumbai","Indore"];
+document.write("<br/><br/>"+cities);
+var city= cities.slice(3,5);
+document.write("<br/><br/>"+city);
+
+/* 
+e2.getEmployeeName= function(){
+	return this.firstName;
+}
+ */
+document.write("e1 nmame= "+e1.getEmployeeName());
+document.write("<br/><br/>e2 nmame= "+e2.getEmployeeName());
+
+</script>
+</html>
